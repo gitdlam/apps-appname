@@ -13,9 +13,12 @@ var (
 	FilePath       string
 )
 
-func Setup() {
+func init() {
 	exe, _ := os.Executable()
-	FolderAndSlash, NameWithExe := filepath.Split(exe)
+	// strange problem: if FolderAndSlash is used instead of f, the change in FolderAndSlash is not visible outside of this function.
+	f, n := filepath.Split(exe)
+	FolderAndSlash = f
+	NameWithExe = n
 	FilePath = FolderAndSlash + NameWithExe
 	Folder = FolderAndSlash[:len(FolderAndSlash)-1] // get rid of trailing backslash of folder
 	Name = NameWithExe
