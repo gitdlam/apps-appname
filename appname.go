@@ -13,7 +13,7 @@ var (
 	FilePath       string
 )
 
-func init() {
+func Setup() {
 	exe, _ := os.Executable()
 	FolderAndSlash, NameWithExe := filepath.Split(exe)
 	FilePath = FolderAndSlash + NameWithExe
@@ -22,4 +22,5 @@ func init() {
 	if len(Name) >= 4 && Name[len(Name)-4:] == ".exe" {
 		Name = Name[:len(Name)-4] // get rid of .exe of name
 	}
+
 }

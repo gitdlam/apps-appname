@@ -10,7 +10,7 @@ func TestFolder(t *testing.T) {
 	}{{"x", "x", "x"}}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotF, gotN := Folder, Name
+			gotF, gotN := varFolder, varName
 			t.Log("Please manual check:", gotF, gotN)
 
 		})
