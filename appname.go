@@ -1,6 +1,8 @@
 package appname
 
 import (
+	"log"
+	Log "log"
 	"os"
 	"path/filepath"
 )
@@ -26,4 +28,11 @@ func init() {
 		Name = Name[:len(Name)-4] // get rid of .exe of name
 	}
 
+	ff, err := os.OpenFile(FolderAndSlash+Name+".log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	if err != nil {
+		log.Fatalf("error opening log file: %v", err)
+	}
+
+	Log.SetOutput(ff)
+	Log.SetFlags(Log.LstdFlags | Log.Lshortfile)
 }
