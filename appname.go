@@ -38,17 +38,21 @@ func init() {
 }
 
 func Panicln(v ...interface{}) {
-	log.Panicln(v)
+	log.Panicln(v...)
 }
 
 func Print(v ...interface{}) {
-	log.Print(v)
+	log.Print(v...)
 }
 
 func Println(v ...interface{}) {
-	log.Println(v)
+	log.Println(v...)
 }
 
 func Fatalln(v ...interface{}) {
-	log.Fatalln(v)
+	log.Fatalln(v...)
+}
+
+func Printf(s string, v ...interface{}) {
+	log.Printf(s, v...)
 }
