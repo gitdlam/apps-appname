@@ -2,7 +2,6 @@ package appname
 
 import (
 	"log"
-	Log "log"
 	"os"
 	"path/filepath"
 )
@@ -33,6 +32,23 @@ func init() {
 		log.Fatalf("error opening log file: %v", err)
 	}
 
-	Log.SetOutput(ff)
-	Log.SetFlags(Log.LstdFlags | Log.Lshortfile)
+	log.SetOutput(ff)
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
+
+}
+
+func Panicln(v ...interface{}) {
+	log.Panicln(v)
+}
+
+func Print(v ...interface{}) {
+	log.Print(v)
+}
+
+func Println(v ...interface{}) {
+	log.Println(v)
+}
+
+func Fatalln(v ...interface{}) {
+	log.Fatalln(v)
 }
